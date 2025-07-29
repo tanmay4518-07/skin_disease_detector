@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prediction Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+</head>
+<body>
+  <div class="container glass">
+    <h1>🧾 Diagnosis Report</h1>
+    <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded image" class="preview"/>
+
+    <div class="result">
+      <h2>🩺 Detected: <span>{{ predicted_class }}</span></h2>
+      <p><strong>Confidence:</strong> {{ confidence }}%</p>
+      <p><strong>Description:</strong> {{ description }}</p>
+    </div>
+
+    <div class="button-group">
+      <a class="button" href="{{ url_for('download_report', filename=report_filename) }}">⬇ Download Report</a>
+      <a class="button back" href="{{ url_for('index') }}">🔙 Back</a>
+    </div>
+  </div>
+</body>
+</html>
