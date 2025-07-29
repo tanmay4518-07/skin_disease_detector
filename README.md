@@ -1,40 +1,45 @@
-# 🧠 Skin Cancer Classifier Web App
+# 🧬 Skin Disease Detector 🔍
 
-A deep learning-powered web application built with **Streamlit** that predicts the **most likely skin disease** from an uploaded skin image using a trained **MobileNetV2 model**.
+A **skin disease classification web application** that uses a deep learning model to detect **one of seven skin conditions** from a single uploaded image. The result includes a prediction, confidence score, medical description, and a downloadable PDF report.
 
----
+## 📸 Supported Diseases
 
-## 🔍 Supported Diseases
+The model can detect one of the following skin conditions:
 
-This classifier can detect the most likely disease among the following:
-
-- Actinic Keratoses  
-- Basal Cell Carcinoma  
-- Benign Keratosis  
-- Dermatofibroma  
-- Melanoma  
-- Melanocytic Nevi  
-- Vascular Lesions
+- **Actinic Keratoses**
+- **Basal Cell Carcinoma**
+- **Benign Keratosis-like Lesions**
+- **Dermatofibroma**
+- **Melanoma**
+- **Melanocytic Nevi**
+- **Vascular Lesions**
 
 ---
 
 ## 🚀 Features
 
-- Upload any skin image (`.jpg`, `.jpeg`, `.png`)
-- Predicts **one disease only** (top-1 class)
-- Displays **confidence level** as a progress bar
-- Downloadable **PDF report**
-- **Dark themed UI** with minimal design
+- ✅ Upload a skin lesion image (JPG/PNG)
+- ✅ Get **one disease prediction** with **confidence**
+- ✅ Displays **medical description**
+- ✅ Preview uploaded image
+- ✅ **Downloadable diagnosis report** (PDF)
+- ✅ Clean, dark-themed UI with **glassmorphism**
+- ✅ Mobile-friendly and responsive layout
 
 ---
 
 ## 🛠 Tech Stack
 
-- Python 🐍
-- TensorFlow / Keras
-- Streamlit
-- ReportLab (for PDF generation)
-- PIL, NumPy
+| Layer        | Technologies                        |
+|--------------|--------------------------------------|
+| Frontend     | HTML, CSS (Glassmorphism + Animations), Jinja |
+| Backend      | Python, Flask                        |
+| AI Model     | TensorFlow / Keras (`skin_cancer_model.h5`) |
+| Report Gen   | ReportLab (PDF generation)           |
+| Deployment   | [Streamlit Cloud](https://streamlit.io/cloud) / Local |
+
+---
+
 
 
 
