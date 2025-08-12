@@ -2,27 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Skin Disease Detector</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Fira+Mono&display=swap" rel="stylesheet" />
+  <link rel="icon" href="{{ url_for('static', filename='icon.png') }}" />
 </head>
 <body>
-  <div class="container glass">
-    <h1>🔬 Skin Disease Detector</h1>
-    <p>Upload a clear image of the skin lesion to detect the most probable skin condition using AI.</p>
+  <div class="background-effect">
+    <div class="stars"></div>
+    <div class="twinkles"></div>
+    <div class="glow-orbs"></div>
+  </div>
 
-    <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
-      <label for="file-upload" class="custom-file-upload">
+  <div class="container glass animated">
+    <h1>🔬 Skin Disease Detector</h1>
+    <p class="subtitle">
+      Upload a clear image of the skin lesion below to detect the most probable condition using AI.
+    </p>
+    <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data" class="upload-form" novalidate>
+      <label for="file-upload" class="custom-file-upload" tabindex="0" role="button" aria-label="Choose image to upload">
         📤 Choose Image
       </label>
-      <input id="file-upload" type="file" name="file" required />
-      <button type="submit">🔍 Predict</button>
+      <input id="file-upload" type="file" name="file" accept="image/*" required />
+      <img class="preview" style="display:none; margin-top:24px; margin-bottom:16px;"/>
+      <button type="submit" class="button accent">🔍 Predict</button>
     </form>
-
     <footer>
-      <p>Model detects:<br>
-      Actinic Keratoses, Basal Cell Carcinoma, Benign Keratosis, Dermatofibroma, Melanoma, Nevi, Vascular Lesions.</p>
+      <p>Model detects the following skin conditions:</p>
+      <ul>
+        <li>Actinic Keratoses</li>
+        <li>Basal Cell Carcinoma</li>
+        <li>Benign Keratosis</li>
+        <li>Dermatofibroma</li>
+        <li>Melanoma</li>
+        <li>Nevi</li>
+        <li>Vascular Lesions</li>
+      </ul>
     </footer>
   </div>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
