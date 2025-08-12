@@ -3,24 +3,41 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Prediction Result</title>
+  <title>Skin Diagnosis Report</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Fira+Mono&display=swap" rel="stylesheet" />
+  <link rel="icon" href="{{ url_for('static', filename='icon.png') }}" />
 </head>
 <body>
-  <div class="container glass">
+  <div class="background-effect">
+    <div class="stars"></div>
+    <div class="twinkles"></div>
+    <div class="glow-orbs"></div>
+  </div>
+  <div class="container glass animated">
     <h1>🧾 Diagnosis Report</h1>
-    <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded image" class="preview"/>
-
+    <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded skin lesion" class="preview shadow"/>
     <div class="result">
-      <h2>🩺 Detected: <span>{{ predicted_class }}</span></h2>
-      <p><strong>Confidence:</strong> {{ confidence }}%</p>
-      <p><strong>Description:</strong> {{ description }}</p>
+      <h2>🩺 <span class="label">Detected:</span> <span class="prediction">{{ predicted_class }}</span></h2>
+      <p><strong>Confidence:</strong> <span class="confidence">{{ confidence }}%</span></p>
+      <section class="description-section">
+        <h3>About <span class="disease-name">{{ predicted_class }}</span></h3>
+        <p class="description">{{ description }}</p>
+      </section>
+      <section class="recommendations">
+        <h3>Recommendations</h3>
+        <ul>
+          <li>Consult a qualified healthcare professional for confirmation and treatment.</li>
+          <li>Protect your skin from excessive sun exposure and maintain hygiene.</li>
+          <li>Follow medical advice carefully and seek follow-ups if necessary.</li>
+        </ul>
+      </section>
     </div>
-
     <div class="button-group">
-      <a class="button" href="{{ url_for('download_report', filename=report_filename) }}">⬇ Download Report</a>
-      <a class="button back" href="{{ url_for('index') }}">🔙 Back</a>
+      <a class="button accent" href="{{ url_for('download_report', filename=report_filename) }}">⬇ Download PDF Report</a>
+      <a class="button back" href="{{ url_for('index') }}">🔙 Try Another Image</a>
     </div>
   </div>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
